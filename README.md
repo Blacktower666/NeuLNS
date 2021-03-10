@@ -26,6 +26,5 @@ Example:
 ```
 python train_model.py -n 99 -c 100
 ```
-By 物界科技 WaterMirror Ltd. www.water-mirror.com
 
-**We Are Hiring!! ML, OR, please email at liuzhixin\@watermirror.ai**
+The vrp_env source code is available at: https://github.com/water-mirror/vrp_env
