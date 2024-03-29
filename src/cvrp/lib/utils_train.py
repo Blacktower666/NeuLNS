@@ -365,7 +365,7 @@ def train_once(model,opt,dl,epoch,step,alpha=1.0):
         old_log_p = batch.log_prob.squeeze(-1)
         adv =  batch.adv.squeeze(-1)
 
-        loss_v = ((v - target_vs) ** 2).mean()
+        loss_v = ((v - target_vs) ** 2).mean()#计算td target
 
         ratio = torch.exp(log_p-old_log_p)
         obj = ratio * adv
@@ -402,7 +402,7 @@ def eval_random(epochs,envs,n_steps=10):
 def random_init(envs,n_steps,n_instance=128):
     nodes,edges = envs.reset()
     for i in range(n_steps):
-        actions = [ random.sample(range(0, N_JOBS),10) for i in range(n_instance) ]
+        actions = [ random.sample(range(0, N_JOBS),10) for i in range(n_instance) ]#随机生成序列作为答案
         actions = np.array(actions)
         nodes,edges,rewards = envs.step(actions)
 
